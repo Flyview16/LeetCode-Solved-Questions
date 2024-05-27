@@ -4,6 +4,6 @@ class Solution:
         repeated_word = word
 
         while repeated_word in sequence:
-            k +=1
+            k += 1
             repeated_word += word
         return k
