@@ -13,7 +13,7 @@ class Solution:
                 if matrix[i][j] == 0:
                     zero_rows.add(i)
                     zero_columns.add(j)
-        
+
         # Set rows to zero
         for i in zero_rows:
             for j in range(columns):
