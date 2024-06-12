@@ -1,16 +1,18 @@
 class Solution:
     def generate(self, numRows: int) -> List[List[int]]:
-        pascals_triangle = []
+        if (numRows == 1):
+             return [[1]]
+        elif (numRows == 2):
+             return [[1], [1, 1]]
+        
+        pascals_triangle = [[1], [1, 1]]
 
-        for row_number in range(numRows):
-            # Start each row with 1s
-            row = [1] * (row_number + 1)
-
-            # Calculate the values for current row
-            for j in range(1, row_number):
-                row[j] = pascals_triangle[row_number -1][j-1] + pascals_triangle[row_number -1][j]
-
-            # Add to pascal's triangle
+        for n in range(1, numRows - 1):
+            row = [1]
+            for i in range(len(pascals_triangle[n]) - 1):
+                row.append(pascals_triangle[n][i] + pascals_triangle[n][i + 1])
+            
+            row.append(1)
             pascals_triangle.append(row)
-
+        
         return pascals_triangle
