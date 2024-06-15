@@ -1,18 +1,11 @@
 class Solution:
     def duplicateNumbersXOR(self, nums: List[int]) -> int:
-        count = {}
-
-        # Count occurence of each number
-        for num in nums:
-            if num in count:
-                count[num] +=1
-            else:
-                count[num] = 1
-        
-        # Find numbers that appear twice and xor them
+        seen = set()
         xor_result = 0
-        for num, times in count.items():
-            if times == 2:
+
+        for num in nums:
+            if num in seen:
                 xor_result ^= num
-        
+            else:
+                seen.add(num)
         return xor_result
